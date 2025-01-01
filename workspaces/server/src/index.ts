@@ -4,6 +4,7 @@ import { createServer, ServerOptions } from "https";
 import { useCORS } from "./middleware/CORS";
 import config from "./config";
 import { listNetworkInterfaceAddresses } from "./util/Networking";
+import { useViewEngine } from "./middleware/ViewEngine";
 
 void (() => {
 	try {
@@ -12,9 +13,7 @@ void (() => {
 		app.use(helmet());
 		useCORS(app, config.PORT, config.ADDRESS, config.ENVIRONMENT);
 		
-		app.get("/", (req, res) => {
-			res.status(200).send("<p>Hello world!</p>");
-		});
+		useViewEngine(app);
 
 		const serverOptions: ServerOptions = config.SSL_CREDENTIALS;
 		// Change any server options below here.
