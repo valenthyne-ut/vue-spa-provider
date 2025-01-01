@@ -65,9 +65,15 @@ function getServerCredentials(): ServerOptions {
 	return credentials;
 }
 
+function getAlwaysDisplayServerAddress(): boolean {
+	const value = getKeyValue("always_display_server_address");
+	return (value !== undefined && value.toLowerCase() === "true");
+}
+
 export default {
 	ENVIRONMENT: environment,
 	PORT: getServerPort(),
 	ADDRESS: getServerAddress(),
-	SSL_CREDENTIALS: getServerCredentials()
+	SSL_CREDENTIALS: getServerCredentials(),
+	ALWAYS_DISPLAY_SERVER_ADDRESS: getAlwaysDisplayServerAddress()
 };
