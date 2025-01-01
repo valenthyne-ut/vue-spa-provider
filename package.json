@@ -1,4 +1,8 @@
 {
-  "name": "vue-spa-provider",
-  "packageManager": "yarn@4.6.0"
+	"name": "vue-spa-provider",
+	"packageManager": "yarn@4.6.0",
+	"workspaces": [
+		"workspaces/server",
+		"workspaces/client"
+	]
 }
