@@ -1,8 +1,21 @@
 {
+	"type": "module",
 	"name": "vue-spa-provider",
 	"packageManager": "yarn@4.6.0",
 	"workspaces": [
 		"workspaces/server",
 		"workspaces/client"
-	]
+	],
+	"scripts": {
+		"build-scripts": "cd scripts && tsc",
+		"build": "node scripts/index.js && node scripts/dist/build.js --server-directory=workspaces/server --client-directory=workspaces/client",
+		"start": "cd dist && node index.js"
+	},
+	"dependencies": {
+		"execa": "^9.5.2"
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.3",
+		"typescript": "^5.7.2"
+	}
 }
